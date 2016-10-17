@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper'
+import Layout from '../constants/Layout'
 
 import ProgressBar from '../components/ProgressBar'
 
@@ -15,8 +10,6 @@ const NOTES = ["Compared to the mental abilities of other species on this planet
   "Descartes was so certain about his introspective ability that he staked his own, as well as God’s, existence on it with his famous “I think, therefore I am”",
   "People who imagined seeing an instance of blatant sexism thought they would be outraged. When people actually saw this very same act, however, they felt virtually no rage at all. Do people not know their own minds?",
   "Naïve realism: the intuitive sense that we see the world out there as it actually is, rather than as it appears from our own perspective."]
-
-const screenWidth = Dimensions.get('window').width;
 
 export default class NotesScreen extends Component {
   constructor(props) {
@@ -64,6 +57,6 @@ const styles = StyleSheet.create({
   },
   noteScrollText: {
     flexWrap: 'wrap',
-    width: screenWidth - 60,
+    width: Layout.window.width - 60,
   },
 });

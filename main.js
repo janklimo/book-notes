@@ -1,24 +1,13 @@
 import Exponent from 'exponent';
-import React from 'react';
-import {
-  AppRegistry,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  NavigationProvider,
-  StackNavigation,
-} from '@exponent/ex-navigation';
-import {
-  FontAwesome,
-} from '@exponent/vector-icons';
+import React, { Component } from 'react';
+import { AppRegistry, Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { NavigationProvider, StackNavigation } from '@exponent/ex-navigation';
+import { FontAwesome } from '@exponent/vector-icons';
 
 import Router from './navigation/Router';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 
-class AppContainer extends React.Component {
+class AppContainer extends Component {
   state = {
     appIsReady: false,
   }
@@ -31,14 +20,14 @@ class AppContainer extends React.Component {
     try {
       await cacheAssetsAsync({
         images: [
-          require('./assets/images/exponent-wordmark.png'),
+          require('./assets/images/jan.png'),
         ],
         fonts: [
           {'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')},
         ],
       });
     } catch(e) {
-      console.warn(`There was an error caching assets (see: main.js), perhaps due to a network timeout, so we skipped caching. Reload the app to try again.`);
+      console.warn(`There was an error caching assets`);
     } finally {
       this.setState({appIsReady: true});
     }
