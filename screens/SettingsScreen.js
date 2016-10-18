@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExponentConfigView } from '@exponent/samples';
 

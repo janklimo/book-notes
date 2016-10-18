@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper'
 import Layout from '../constants/Layout'
