@@ -1,13 +1,8 @@
-import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
-import {
-  ExponentConfigView,
-} from '@exponent/samples';
+import { Component } from 'react'
+import { ScrollView, StyleSheet } from 'react-native';
+import { ExponentConfigView } from '@exponent/samples';
 
-export default class SettingsScreen extends React.Component {
+export default class SettingsScreen extends Component {
   static route = {
     navigationBar: {
       title: 'exp.json'

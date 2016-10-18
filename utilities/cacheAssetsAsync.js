@@ -1,7 +1,4 @@
-import {
-  Asset,
-  Font,
-} from 'exponent';
+import { Asset, Font } from 'exponent';
 
 export default function cacheAssetsAsync({images = [], fonts = []}) {
   return Promise.all([
