@@ -1,4 +1,20 @@
 import Exponent from 'exponent';
-import App from './components/App'
+import React from 'react'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
 
-Exponent.registerRootComponent(App);
+import App from './components/App'
+import notesReducer from './reducers/notes'
+
+const reducers = combineReducers({ notes: notesReducer })
+const store = createStore(reducers)
+
+const Main = () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+}
+
+Exponent.registerRootComponent(Main);

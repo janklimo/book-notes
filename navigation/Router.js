@@ -1,13 +1,13 @@
 import { createRouter } from '@exponent/ex-navigation';
 
 import HomeScreen from '../screens/HomeScreen';
-import NotesScreen from '../screens/NotesScreen';
+import NotesScreenContainer from '../containers/notes';
 import SettingsScreen from '../screens/SettingsScreen';
 import RootNavigation from './RootNavigation';
 
 export default createRouter(() => ({
   home: () => HomeScreen,
-  notes: () => NotesScreen,
+  notes: () => NotesScreenContainer,
   settings: () => SettingsScreen,
   rootNavigation: () => RootNavigation,
 }));
