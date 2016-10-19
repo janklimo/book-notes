@@ -35,8 +35,9 @@ const NOTES = [
 
 export default notesReducer = (state = fromJS(NOTES), action) => {
   switch (action.type) {
-    case 'CHANGE_NAME':
-      return 'Joel';
+    case 'TOGGLE_FAV':
+      const index = state.findIndex(note => { note.get('id') === action.id });
+      return state.setIn([index, 'favorite'], !state.getIn([index, 'favorite']));
     default:
       return state;
   }

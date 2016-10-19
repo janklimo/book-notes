@@ -8,8 +8,6 @@ import ProgressBar from '../components/ProgressBar'
 export default class NotesScreen extends Component {
   constructor(props) {
     super(props);
-
-    console.log(props);
     this.state = {
       scrollIndex: 0
     };

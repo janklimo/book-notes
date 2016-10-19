@@ -1,34 +1,40 @@
 import chai, { expect } from 'chai'
 import chaiImmutable from 'chai-immutable'
 import Immutable, { List, fromJS } from 'immutable'
-
 chai.use(chaiImmutable);
 
-let initialState = {
-  books: [
-    {
-      id: 0,
-      rating: 8,
-      notes: [
-        {
-          id: 10,
-          text: 'My first note!',
-          favorite: false
-        },
-        {
-          id: 20,
-          text: 'My second note!',
-          favorite: false
-        }
-      ]
-    }
-  ]
-};
+import notesReducer from '../reducers/notes'
 
-describe('List', () => {
-  console.log('nice');
-  console.log(fromJS(initialState));
-  it('should respond to include', () => {
-    expect(new List([1, 2, 3])).to.include(2);
+describe('Adding a fav', () => {
+  it('should change the corresponding fav flag', () => {
+    let initialState = fromJS([
+      {
+        id: 10,
+        text: 'My first note!',
+        favorite: false
+      },
+      {
+        id: 20,
+        text: 'My second note!',
+        favorite: false
+      }
+    ]);
+    let finalState = fromJS([
+      {
+        id: 10,
+        text: 'My first note!',
+        favorite: false
+      },
+      {
+        id: 20,
+        text: 'My second note!',
+        favorite: true
+      }
+    ]);
+    let action = {
+      type: 'TOGGLE_FAV',
+      id: 20
+    }
+    expect(notesReducer(initialState, action)).to.equal(finalState);
   });
 });
