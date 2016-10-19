@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import NotesScreen from '../screens/NotesScreen';
 
 const mapStateToProps = (state) => {
-  const { notes } = state;
   return {
-    notes
+    notes: state.get('notes')
   }
 };
 

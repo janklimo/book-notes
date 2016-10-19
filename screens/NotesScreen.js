@@ -9,6 +9,7 @@ export default class NotesScreen extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props);
     this.state = {
       scrollIndex: 0
     };
@@ -25,10 +26,10 @@ export default class NotesScreen extends Component {
       <View style={styles.notesContainer}>
         <Swiper showsPagination={false} loop={false}
           onMomentumScrollEnd={this.onMomentumScrollEnd.bind(this)}>
-          {notes.map((note, index) => {
+          {notes.toArray().map(note => {
             return(
-              <ScrollView style={styles.noteScrollView} key={index}>
-                <Text style={styles.noteScrollText}>{ note }</Text>
+              <ScrollView style={styles.noteScrollView} key={note.get('id')}>
+                <Text style={styles.noteScrollText}>{ note.get('text') }</Text>
               </ScrollView>
             );
           })}
