@@ -6,7 +6,7 @@ import { combineReducers } from 'redux-immutable'
 import { Provider } from 'react-redux'
 
 import App from './components/App'
-import notesReducer from './reducers/notes'
+import notesReducer from './store/notes/reducer'
 
 const reducers = combineReducers({ notes: notesReducer })
 const initialState = Immutable.Map()

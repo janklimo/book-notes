@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper'
 import Layout from '../constants/Layout'
@@ -24,9 +25,9 @@ export default class NotesScreen extends Component {
       <View style={styles.notesContainer}>
         <Swiper showsPagination={false} loop={false}
           onMomentumScrollEnd={this.onMomentumScrollEnd.bind(this)}>
-          {notes.toArray().map(note => {
+          {_.map(notes.toObject(), (note, noteId) => {
             return(
-              <ScrollView style={styles.noteScrollView} key={note.get('id')}>
+              <ScrollView style={styles.noteScrollView} key={noteId}>
                 <Text style={styles.noteScrollText}>{ note.get('text') }</Text>
               </ScrollView>
             );

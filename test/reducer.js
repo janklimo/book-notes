@@ -3,38 +3,32 @@ import chaiImmutable from 'chai-immutable'
 import Immutable, { List, fromJS } from 'immutable'
 chai.use(chaiImmutable);
 
-import notesReducer from '../reducers/notes'
+import notesReducer from '../store/notes/reducer'
+import * as actions from '../store/notes/actions'
 
-describe('Adding a fav', () => {
+describe('toggleFav', () => {
   it('should change the corresponding fav flag', () => {
-    let initialState = fromJS([
-      {
-        id: 10,
+    let initialState = fromJS({
+      10: {
         text: 'My first note!',
         favorite: false
       },
-      {
-        id: 20,
+      20: {
         text: 'My second note!',
         favorite: false
       }
-    ]);
-    let finalState = fromJS([
-      {
-        id: 10,
+    });
+    let finalState = fromJS({
+      10: {
         text: 'My first note!',
         favorite: false
       },
-      {
-        id: 20,
+      20: {
         text: 'My second note!',
         favorite: true
       }
-    ]);
-    let action = {
-      type: 'TOGGLE_FAV',
-      id: 20
-    }
-    expect(notesReducer(initialState, action)).to.equal(finalState);
+    });
+    expect(notesReducer(initialState, actions.toggleFav('20'))).to.equal(finalState);
+    expect(notesReducer(finalState, actions.toggleFav('20'))).to.equal(initialState);
   });
 });
