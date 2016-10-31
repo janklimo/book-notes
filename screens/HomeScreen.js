@@ -8,8 +8,6 @@ import {
   View,
 } from 'react-native';
 
-import Star from '../components/Star'
-
 export default class HomeScreen extends React.Component {
   static route = {
     navigationBar: {
@@ -36,8 +34,6 @@ export default class HomeScreen extends React.Component {
               Jan's Book Notes
             </Text>
           </View>
-
-          <Star />
         </ScrollView>
       </View>
     );

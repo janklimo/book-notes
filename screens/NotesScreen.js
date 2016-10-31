@@ -5,6 +5,7 @@ import Swiper from 'react-native-swiper'
 import Layout from '../constants/Layout'
 
 import ProgressBar from '../components/ProgressBar'
+import Star from '../components/Star'
 
 export default class NotesScreen extends Component {
   constructor(props) {
@@ -29,6 +30,9 @@ export default class NotesScreen extends Component {
             return(
               <ScrollView style={styles.noteScrollView} key={noteId}>
                 <Text style={styles.noteScrollText}>{ note.get('text') }</Text>
+                <View style={styles.starContainer}>
+                  <Star />
+                </View>
               </ScrollView>
             );
           })}
@@ -52,5 +56,12 @@ const styles = StyleSheet.create({
   noteScrollText: {
     flexWrap: 'wrap',
     width: Layout.window.width - 60,
+  },
+  starContainer: {
+    flex: 1,
+    width: Layout.window.width - 60,
+    marginTop: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

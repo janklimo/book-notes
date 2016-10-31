@@ -41,7 +41,7 @@ export default class Star extends Component {
           ]}>
           <FontAwesome
             name={'star'}
-            size={22}
+            size={30}
             color={ this.state.active ? Colors.starActive : Colors.starDefault } />
         </Animated.View>
       </TouchableWithoutFeedback>
@@ -51,8 +51,7 @@ export default class Star extends Component {
 
 const styles = StyleSheet.create({
   starContainer: {
-    width: 20,
-    height: 20,
-    marginLeft: 20
+    width: 30,
+    height: 30,
   },
 })
