@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Immutable from 'immutable'
 import {
   Animated,
   StyleSheet,
@@ -15,13 +16,14 @@ export default class Star extends Component {
     super(props);
     this.state = {
       bounceValue: new Animated.Value(1),
-      active: false
     };
   }
 
   animateStar = () => {
+    const { noteId, onToggleFavClick } = this.props;
     this.state.bounceValue.setValue(1.7)
-    this.setState({ active: !this.state.active })
+    onToggleFavClick(noteId)
+
     Animated.spring(
       this.state.bounceValue,
       {
@@ -32,6 +34,7 @@ export default class Star extends Component {
   }
 
   render() {
+    const { note } = this.props;
     return (
       <TouchableWithoutFeedback onPress={this.animateStar}>
         <Animated.View
@@ -42,11 +45,18 @@ export default class Star extends Component {
           <FontAwesome
             name={'star'}
             size={30}
-            color={ this.state.active ? Colors.starActive : Colors.starDefault } />
+            color={ note.get('favorite') ? Colors.starActive :
+              Colors.starDefault } />
         </Animated.View>
       </TouchableWithoutFeedback>
     );
   }
+}
+
+Star.propTypes = {
+  note: React.PropTypes.instanceOf(Immutable.Map).isRequired,
+  onToggleFavClick: React.PropTypes.func.isRequired,
+  noteId: React.PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({

@@ -1,11 +1,7 @@
 import React, {
   PropTypes
 } from 'react';
-import {
-  DeviceEventEmitter,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import {
   StackNavigation,
   TabNavigation,
@@ -22,9 +18,9 @@ import Router from './Router';
 const renderIcon = (name, isSelected) => {
   return (
     <FontAwesome
-    name={name}
-    size={32}
-    color={isSelected ? Colors.tabIconSelected : Colors.tabIconDefault}
+      name={name}
+      size={32}
+      color={isSelected ? Colors.tabIconSelected : Colors.tabIconDefault}
     />
   );
 };

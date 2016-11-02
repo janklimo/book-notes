@@ -21,7 +21,7 @@ export default class NotesScreen extends Component {
   }
 
   render() {
-    const { notes } = this.props;
+    const { notes, onToggleFavClick } = this.props;
     return (
       <View style={styles.notesContainer}>
         <Swiper showsPagination={false} loop={false}
@@ -31,7 +31,8 @@ export default class NotesScreen extends Component {
               <ScrollView style={styles.noteScrollView} key={noteId}>
                 <Text style={styles.noteScrollText}>{ note.get('text') }</Text>
                 <View style={styles.starContainer}>
-                  <Star />
+                  <Star note={note} noteId={noteId}
+                    onToggleFavClick={onToggleFavClick}/>
                 </View>
               </ScrollView>
             );
