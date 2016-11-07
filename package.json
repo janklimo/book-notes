@@ -1,27 +1,28 @@
 {
   "name": "book-notes",
   "version": "0.0.0",
-  "description": "Hello Exponent!",
-  "author": null,
+  "description": "Book Notes",
+  "author": "Jan Klimo",
   "private": true,
   "main": "main.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register"
   },
   "dependencies": {
-    "@exponent/ex-navigation": "^1.6.0",
+    "@exponent/ex-navigation": "^1.8.3",
     "@exponent/samples": "^1.0.2",
     "@exponent/vector-icons": "^1.0.1",
-    "exponent": "^10.0.0",
+    "exponent": "10.0.3",
     "immutable": "^3.8.1",
     "lodash": "^4.16.4",
     "react": "~15.3.2",
-    "react-native": "github:exponentjs/react-native#sdk-10.1.2",
-    "react-native-animatable": "^0.6.1",
+    "react-native": "github:exponentjs/react-native#sdk-10.1.4",
     "react-native-swiper": "^1.5.1",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
     "redux-immutable": "^3.0.8",
+    "redux-persist": "4.0.0-alpha6",
+    "redux-persist-transform-immutable": "^4.1.0",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
