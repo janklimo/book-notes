@@ -26,10 +26,10 @@ export default class NotesScreen extends Component {
       <View style={styles.notesContainer}>
         <Swiper showsPagination={false} loop={false}
           onMomentumScrollEnd={this.onMomentumScrollEnd.bind(this)}>
-          {_.map(notes.toObject(), (note, noteId) => {
+          {_.map(notes, (note, noteId) => {
             return(
               <ScrollView style={styles.noteScrollView} key={noteId}>
-                <Text style={styles.noteScrollText}>{ note.get('text') }</Text>
+                <Text style={styles.noteScrollText}>{ note.text }</Text>
                 <View style={styles.starContainer}>
                   <Star note={note} noteId={noteId}
                     onToggleFavClick={onToggleFavClick}/>

@@ -8,7 +8,7 @@ import * as actions from '../store/notes/actions'
 
 describe('toggleFav', () => {
   it('should change the corresponding fav flag', () => {
-    let initialState = fromJS({
+    let initialState = {
       10: {
         text: 'My first note!',
         favorite: false
@@ -17,8 +17,8 @@ describe('toggleFav', () => {
         text: 'My second note!',
         favorite: false
       }
-    });
-    let finalState = fromJS({
+    };
+    let finalState = {
       10: {
         text: 'My first note!',
         favorite: false
@@ -27,8 +27,8 @@ describe('toggleFav', () => {
         text: 'My second note!',
         favorite: true
       }
-    });
-    expect(notesReducer(initialState, actions.toggleFav('20'))).to.equal(finalState);
-    expect(notesReducer(finalState, actions.toggleFav('20'))).to.equal(initialState);
+    };
+    expect(notesReducer(initialState, actions.toggleFav(20))).to.deep.equal(finalState);
+    expect(notesReducer(finalState, actions.toggleFav(20))).to.deep.equal(initialState);
   });
 });

@@ -5,7 +5,7 @@ import Layout from '../constants/Layout'
 export default class ProgressBar extends Component {
   constructor(props) {
     super(props);
-    this.step = Layout.window.width / props.notes.size;
+    this.step = Layout.window.width / Object.keys(props.notes).length;
     this.state = {
       widthAnim: new Animated.Value(0)
     };

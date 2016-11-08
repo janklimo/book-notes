@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import * as types from './actionTypes'
+import _ from 'lodash'
 
 const NOTES = {
   1: {
@@ -28,12 +29,12 @@ const NOTES = {
   }
 }
 
-export default notesReducer = (state = fromJS(NOTES), action) => {
+export default notesReducer = (state = NOTES, action) => {
   switch (action.type) {
     case types.TOGGLE_FAV:
-      return state.setIn(
-        [action.noteId, 'favorite'],
-        !state.getIn([action.noteId, 'favorite'])
+      return Object.assign(
+        {},
+        _.set(state, `${action.noteId}.favorite`, !state[action.noteId].favorite)
       );
     default:
       return state;
