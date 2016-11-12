@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Immutable from 'immutable'
 import { StyleSheet, Animated, Easing } from 'react-native';
 import Layout from '../constants/Layout'
 
 export default class ProgressBar extends Component {
   constructor(props) {
     super(props);
-    this.step = Layout.window.width / Object.keys(props.notes).length;
+    this.step = Layout.window.width / props.notes.size;
     this.state = {
       widthAnim: new Animated.Value(0)
     };
@@ -37,6 +38,11 @@ export default class ProgressBar extends Component {
       </Animated.View>
     );
   }
+}
+
+ProgressBar.propTypes = {
+  page: React.PropTypes.number.isRequired,
+  notes: React.PropTypes.instanceOf(Immutable.Map).isRequired,
 }
 
 const styles = StyleSheet.create({

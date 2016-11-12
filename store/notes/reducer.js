@@ -29,13 +29,13 @@ const NOTES = {
   }
 }
 
-export default notesReducer = (state = NOTES, action) => {
+export default notesReducer = (state = fromJS(NOTES), action) => {
   switch (action.type) {
     case types.TOGGLE_FAV:
-      return Object.assign(
-        {},
-        _.set(state, `${action.noteId}.favorite`, !state[action.noteId].favorite)
-      );
+      return state.setIn(
+        [action.noteId, 'favorite'],
+        !state.getIn([action.noteId, 'favorite'])
+      )
     default:
       return state;
   }

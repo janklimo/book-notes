@@ -45,7 +45,7 @@ export default class Star extends Component {
           <FontAwesome
             name={'star'}
             size={30}
-            color={ note.favorite ? Colors.starActive :
+            color={ note.get('favorite') ? Colors.starActive :
               Colors.starDefault } />
         </Animated.View>
       </TouchableWithoutFeedback>
@@ -54,7 +54,7 @@ export default class Star extends Component {
 }
 
 Star.propTypes = {
-  note: React.PropTypes.object.isRequired,
+  note: React.PropTypes.instanceOf(Immutable.Map).isRequired,
   onToggleFavClick: React.PropTypes.func.isRequired,
   noteId: React.PropTypes.string.isRequired,
 }

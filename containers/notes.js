@@ -6,7 +6,7 @@ import { toggleFav } from '../store/notes/actions'
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state.get('notes')
   }
 };
 
